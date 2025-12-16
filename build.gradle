@@ -1,0 +1,23 @@
+plugins {
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.1.0'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Thư viện kết nối MySQL
+    implementation 'mysql:mysql-connector-java:8.0.33'
+}
+
+javafx {
+    version = "21"
+    modules = [ 'javafx.controls', 'javafx.fxml' ]
+}
+
+application {
+    // Đây là nơi chương trình sẽ bắt đầu chạy
+    mainClass = 'com.bluemoon.app.application.Main'
+}
