@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bluemoon.app.controllers.LoginController">
+   <children>
+      <Label layoutX="185.0" layoutY="54.0" text="BLUE MOON MANAGEMENT">
+         <font><Font name="System Bold" size="18.0" /></font>
+      </Label>
+      <TextField fx:id="tfUsername" layoutX="210.0" layoutY="144.0" promptText="Tên đăng nhập" />
+      <PasswordField fx:id="pfPassword" layoutX="210.0" layoutY="194.0" promptText="Mật khẩu" />
+      <Button layoutX="260.0" layoutY="254.0" mnemonicParsing="false" onAction="#handleLogin" text="Đăng nhập" />
+   </children>
+</AnchorPane>
