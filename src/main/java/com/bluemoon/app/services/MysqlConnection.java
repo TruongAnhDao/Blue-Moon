@@ -2,6 +2,8 @@ package com.bluemoon.app.services;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class MysqlConnection {
@@ -23,6 +25,29 @@ public class MysqlConnection {
             System.err.println("Lỗi kết nối: " + e.getMessage());
         }
         return conn;
+    }
+
+    /*
+     * Hàm tiện ích
+     */
+    public static ResultSet executeQuery(String sql, Object... params) throws SQLException {
+        Connection conn = getConnection();
+        PreparedStatement pstmt = conn.prepareStatement(sql);
+        for (int i = 0; i < params.length; i++) {
+            pstmt.setObject(i + 1, params[i]);
+        }
+        return pstmt.executeQuery();
+        // Cần đóng ResultSet và Connection sau khi dùng
+    }
+
+    public static int executeUpdate(String sql, Object... params) throws SQLException {
+        try (Connection conn = getConnection();
+            PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            for (int i = 0; i < params.length; i++) {
+                pstmt.setObject(i + 1, params[i]);
+            }
+            return pstmt.executeUpdate();
+        }
     }
 
     /**
