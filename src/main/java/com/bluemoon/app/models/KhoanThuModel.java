@@ -4,7 +4,7 @@ public class KhoanThuModel {
     private int id;
     private String tenKhoanThu;
     private double soTien;
-    private String loaiKhoanThu;
+    private int loaiKhoanThu;
 
     // Tạo Constructor và Getter/Setter ở đây 
 }
